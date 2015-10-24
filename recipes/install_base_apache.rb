@@ -62,7 +62,8 @@ if node[:mod_security][:from_source]
     backup false
     not_if do
       # FIXME: Only checks for the existence of the module file. Doesn't check the version of the module is as specified.
-      File.exists?("#{node[:mod_security][:source_module_path]}/#{node[:mod_security][:source_module_name]}")
+      File.exists?("#{node[:mod_security][:source_module_path]}/#{node[:mod_security][:source_module_name]}") ||
+      File.exists?(source_code_tar_file)
     end
     notifies :create, 'ruby_block[validate_tarball_checksum]', :immediately
   end
