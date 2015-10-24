@@ -28,7 +28,7 @@ default[:mod_security][:install_custom] = true		# Install custom rule files
 # mod_security locations
 default[:mod_security][:from_source] = false
 default[:mod_security][:source_version] = '2.2.7'
-default[:mod_security][:source_file] = "modsecurity-apache_#{node[:mod_security][:source_version]}.tar.gz"
+default[:mod_security][:source_file] = "modsecurity-#{node[:mod_security][:source_version]}.tar.gz"
 default[:mod_security][:source_checksum] = '11e05cfa6b363c2844c6412a40ff16f0021e302152b38870fd1f2f44b204379b'
 default[:mod_security][:source_dl_server] = 'https://github.com/SpiderLabs/ModSecurity/releases/download'
 default[:mod_security][:source_dl_url] = "#{node[:mod_security][:source_dl_server]}/v#{node[:mod_security][:source_version]}/#{node[:mod_security][:source_file]}"
